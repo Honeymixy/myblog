@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+<h1>Login</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form method="POST" >
+                {% csrf_token %}
+                 <div class="mb-3">
+                    <label for="username" class="form-label">UserName</label>
+                    <input type="text" name="username" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" required >
+                </div>
+                
+                <button type="submit" class="btn btn-primary mb-4">Login</button>
+               
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    let form_fields = document.getElementsByTagName('input');
+    form_fields[1].placeholder = 'Username';
+    form_fields[2].placeholder ='Password';
+
+    for (let field in form_fields) {
+        form_fields[field].className = 'form-control'
+    }
+</script>
+{% endblock body %}

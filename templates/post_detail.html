@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Detail Page
+{% endblock title %}
+    
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <article class="post">
+                    <a class="btn btn-danger float-end m-2"href="{% url 'post_delete' pk=post.pk %}">Delete</a>
+                    <a class="btn btn-primary float-end m-2" href="{% url 'post_edit' pk=post.pk %}">Update</a>
+                    
+                    {% if post.published_date %}
+                        <i class="date">{{ post.published_date}}</i>
+                    {% endif %}
+                    <h2 class="bg-secondary text-white text-center my-4">{{post.title}}</h2>
+                        <p>{{ post.description|linebreaksbr }}</p>
+                </article>
+            </div>
+        </div>
+        
+
+    </div>
+{% endblock body %}
+    
